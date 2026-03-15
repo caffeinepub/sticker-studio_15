@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque[opsz,wdth,wght].woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree[wght].woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Pastel kawaii palette - light mode */
+    --background: 0.98 0.005 60;
+    --foreground: 0.25 0.02 300;
+
+    --card: 1 0 0;
+    --card-foreground: 0.25 0.02 300;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.25 0.02 300;
+
+    /* Primary: soft rose-pink */
+    --primary: 0.65 0.18 350;
+    --primary-foreground: 1 0 0;
+
+    /* Secondary: soft lavender */
+    --secondary: 0.92 0.04 290;
+    --secondary-foreground: 0.35 0.08 290;
+
+    /* Muted: light peachy cream */
+    --muted: 0.95 0.02 50;
+    --muted-foreground: 0.55 0.04 300;
+
+    /* Accent: soft mint */
+    --accent: 0.91 0.05 160;
+    --accent-foreground: 0.3 0.08 160;
+
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 1 0 0;
+
+    --border: 0.9 0.03 300;
+    --input: 0.9 0.03 300;
+    --ring: 0.65 0.18 350;
+
+    --radius: 1rem;
+
+    --chart-1: 0.7 0.18 350;
+    --chart-2: 0.72 0.14 290;
+    --chart-3: 0.75 0.12 160;
+    --chart-4: 0.78 0.14 60;
+    --chart-5: 0.68 0.16 220;
+
+    --sidebar: 0.96 0.01 300;
+    --sidebar-foreground: 0.25 0.02 300;
+    --sidebar-primary: 0.65 0.18 350;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.91 0.05 160;
+    --sidebar-accent-foreground: 0.3 0.08 160;
+    --sidebar-border: 0.9 0.03 300;
+    --sidebar-ring: 0.65 0.18 350;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .pastel-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.97 0.03 350) 0%,
+      oklch(0.96 0.03 290) 35%,
+      oklch(0.96 0.03 160) 70%,
+      oklch(0.97 0.04 60) 100%
+    );
+  }
+
+  .card-float {
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow
+      0.25s ease;
+  }
+
+  .card-float:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 40px oklch(0.65 0.18 350 / 0.15);
+  }
+}
